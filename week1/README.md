@@ -103,3 +103,6 @@ Adding `[[likely]]` and `[[unlikely]]` to branching code to reduce the rate of b
 ## 7. Alleviating the return vector's allocation cost (ineffective)
 **Hypothesis:** When returning an array like this (`{something}`), it dynamically allocates an array onto the heap and then copies it into the vector. The memory allocation may be avoided by pre-allocating a space for the return element to stay in (`order_buf_`). \
 **Why it didn't work:** The compiler does this anyway, lol. (Read: RVO)
+
+# Surprising! (for me)
+I didn't realize just how much the CPU parallelized operations. I walked into this envisioning an interpreter, and the more I dug in, the more I just saw how much the compiler pushed lines around and just treated the code as more of a suggestion.
