@@ -9,6 +9,10 @@
 - OS: CachyOS \w Linux Kernel Ver. 7.0.11
 - RAM: 16GB
 
+# Build Steps
+Run `cmake -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build -j` to compile. \
+Run `taskset -c <core> ./build/quant_runner build/spec_strategy.so <path-to-csv>` to run, pinned to one (or more) core(s).
+
 # Engine Implementation
 A simple engine for testing strategies, just measures and shows p50, p90, p99, and p999 by storing deltas. Uses `__rdtsc()` for cycles measurement.
 
